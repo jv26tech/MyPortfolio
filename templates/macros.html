@@ -1,0 +1,15 @@
+{% macro  navItem(text, href, icon, class) %}
+<li class="nav-item"><a class="nav-link {{ class }}" href="{{ href }}" aria-current="page"><i class="bi bi-{{ icon }}"></i> {{ text }}</a></li>
+{% endmacro %}
+
+{% macro navbar() %}
+<nav class="navbar nav-menu">
+    <ul class="nav flex-column">
+        {{ navItem("Home", "#home", "house", "active") }}
+        {{ navItem("About", "#about", "person") }}
+        {{ navItem("Skills", "#skills", "list-check") }}
+        {{ navItem("Curriculum", "#cv", "collection") }}
+        {{ navItem("Contact", "#contact", "envelope") }}
+    </ul>
+</nav>
+{% endmacro %}
