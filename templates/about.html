@@ -1,0 +1,44 @@
+<section id="about" class="container mt-2">
+    <div class="row w-100 p-3">
+        <div class="col-md-12">
+            <h2 class="">About</h2>
+            <p>
+                I am a web developer and electronics technician. I have a degree in Electronics and I am
+                currently studying Computer Science at the Federal University of São Carlos. I have experience
+                with web development, mainly with the Django framework, and I am always looking to learn new
+                technologies.
+
+            </p>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-3">
+                <img class="img-fluid" src="../static/img/about-photo.jpg" alt="">
+            </div>
+            <div class="col-md-9">
+                <h3>Profile</h3>
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        {{ listDados([
+                        listItemDados("Birthdate", "26/04/2002", "calendar"),
+                        listItemDados("City", "São Paulo", "geo-alt"),
+                        listItemDados("State", "São Paulo (Brasil)", "geo-alt"),
+                        ])
+                        }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ listDados([
+                        listItemDados("Degree", "Electronics Technician", "award"),
+                        listItemDados("Course", "Electrical Engineering", "bullseye"),
+                        listItemDados("Experience", "2+ years", "graph-up-arrow"),
+                        ])
+                        }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>

@@ -155,6 +155,13 @@ i.menu-mobile{
     left: 0;
 }
 
+div.right {
+    display: block;
+}
+div.left {
+    display: none;
+}
+
 @media (max-width: 1024px){
     #header{
         left: -300px;
@@ -173,6 +180,12 @@ i.menu-mobile{
     }
     #subtitle {
         font-size: .5rem;
+    }
+    div.right {
+        display: none;
+    }
+    div.left {
+        display: block;
     }
 }
 

@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect
+from dataclasses import dataclass
 
 app = Flask(__name__)
 

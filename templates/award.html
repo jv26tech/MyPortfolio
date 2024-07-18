@@ -1,0 +1,32 @@
+<section id="extracurricular">
+    <div class="container pb-2 p-3">
+        <h2><strong>Awards</strong></h2>
+            {% call award("obmep.jpg", "OBMEP", "Mathematics") %}
+                <ul>
+                    {{ medal("3x Silver Medal", "2016, 2017, 2018", "gray") }}
+                    {{ medal("1x Bronze Medal", "2019", "brown") }}
+                </ul>
+            {% endcall %}
+            {% call award("canguru.png", "Canguru Brasil", "Mathematics", false) %}
+                <ul>
+                    {{ medal("2x Golden Medal", "2018, 2019", "yellow") }}
+                    {{ medal("1x Silver Medal", "2015", "gray") }}
+                </ul>
+            {% endcall %}
+            {% call award("oimsf.png", "Mathématiques sans Frontières", "Mathematics") %}
+                <ul>
+                    {{ medal("2x Silver Medal", "2018", "gray") }}
+                </ul>
+            {% endcall %}
+            {% call award("obfep.png", "OBFEP", "Physics", false) %}
+                <ul>
+                    {{ medal("1x Bronze Medal", "2018", "brown") }}
+                </ul>
+            {% endcall %}
+            {% call award("obg.jpeg", "OBG", "Geography") %}
+                <ul>
+                    {{ medal("2x Silver Medal", "2018, 2019", "gray") }}
+                </ul>
+            {% endcall %}
+    </div>
+</section>

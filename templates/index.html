@@ -1,4 +1,4 @@
-{% from "macros.html" import navbar, listItemDados, listDados, progress with context%}
+{% from "macros.html" import navbar, listItemDados, listDados, progress, cvItem, navItem, extra, medal, award with context%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,102 +19,29 @@
             <img src="../static/img/profile-img.jpg" alt="João Victor Ferrer Morgado">
             <h1>Victor Ferrer</h1>
             <div class="social-links mt-4 text-center">
-                <a href="https://www.linkedin.com/in/joaovictorferrer/">
+                <a href="https://www.linkedin.com/in/joaovictorferrer/?locale=en_US" target="_blank">
                     <i class="bi bi-linkedin"></i>
                 </a>
             </div>
 
         </section>
-        {{ navbar() }}
+        {% call navbar() %}
+            {{ navItem("Home", "#home", "house", "active") }}
+            {{ navItem("About", "#about", "person") }}
+            {{ navItem("Skills", "#skills", "list-check") }}
+            {{ navItem("Experience", "#cv", "collection") }}
+            {{ navItem("Extracurricular", "#extracurricular", "person-up") }}
+            {{ navItem("Awards", "#award", "award") }}
+            {{ navItem("Contact", "#contact", "envelope") }}
+        {% endcall %}
     </aside>
     <main id="main">
-        <section id="home" class="row m-0 p-0">
-            <div class="col-md-7 d-flex justify-content-center align-items-center flex-column">
-                <h2 class="text-white text-shadow">Victor Ferrer</h2>
-                <span id="subtitle" class="text-white text-shadow">Web Developer | Electronics Technician</span>
-            </div>
-            <div class="col-md-5 d-flex justify-content-end align-items-end">
-                <div id="scroll" class="d-flex align-items-center">
-
-                    <i class="bi bi-arrow-down text-white pe-2 fs-2" aria-hidden="true"></i>
-                    <a href="">Scroll for more!</a>
-                </div>
-            </div>
-        </section>
-        <section id="about" class="container mt-2">
-            <div class="row w-100 p-3">
-                <div class="col-md-12">
-                    <h2 class="">About</h2>
-                    <p>
-                        I am a web developer and electronics technician. I have a degree in Electronics and I am
-                        currently studying Computer Science at the Federal University of São Carlos. I have experience
-                        with web development, mainly with the Django framework, and I am always looking to learn new
-                        technologies.
-
-                    </p>
-
-                </div>
-                <div class="row">
-
-                    <div class="col-md-3">
-                        <img class="img-fluid" src="../static/img/about-photo.jpg" alt="">
-                    </div>
-                    <div class="col-md-9">
-                        <h3>Profile</h3>
-                        <div class="row">
-
-                            <div class="col-md-6">
-
-                                {{ listDados([
-                                listItemDados("Birthdate", "26/04/2002", "calendar"),
-                                listItemDados("City", "São Paulo", "geo-alt"),
-                                listItemDados("State", "São Paulo (Brasil)", "geo-alt"),
-                                ])
-                                }}
-                            </div>
-                            <div class="col-md-6">
-                                {{ listDados([
-                                listItemDados("Degree", "Electronics Technician", "award"),
-                                listItemDados("Course", "Electrical Engineering", "bullseye"),
-                                listItemDados("Experience", "2+ years", "graph-up-arrow"),
-                                ])
-                                }}
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-        </section>
-        <section id="skills" class="mt-5 section-bg">
-            <div class="container pb-2 p-3">
-                <h2>Skills</h2>
-                <p>
-                    I have experience with web development, mainly with the Flask framework. I have
-                    knowledge in Python, JavaScript, HTML, CSS, SQL, and C. I have experience with Linux
-                    and Docker, and I am always looking to learn new technologies.
-                </p>
-                <div class="row p-3">
-                    <div class="col-md-6">
-                        {{ progress("Python", 90) }}
-                        {{ progress("JavaScript", 70) }}
-                        {{ progress("C", 70) }}
-                        {{ progress("HTML", 90) }}
-                        {{ progress("CSS", 70) }}
-                        {{ progress("SQL", 80) }}
-
-                    </div>
-                    <div class="col-md-6">
-                        {{ progress("Networks", 90) }}
-                        {{ progress("Flask", 90) }}
-                        {{ progress("Django", 80) }}
-                        {{ progress("Linux", 80) }}
-                        {{ progress("Docker", 70) }}
-                        {{ progress("Git", 70) }}
-
-                    </div>
-                </div>
-            </div>
-        </section>
+        {% include 'home.html' %}
+        {% include 'about.html' %}
+        {% include 'skills.html' %}
+        {% include 'cv.html' %}
+        {% include 'extracurricular.html' %}
+        {% include 'award.html' %}
     </main>
 
     <script src="../static/bootstrap/js/bootstrap.bundle.min.js"></script>

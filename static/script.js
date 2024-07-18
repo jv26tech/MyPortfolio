@@ -10,10 +10,13 @@ menuMobile.addEventListener('click', () => {
     body.classList.toggle('menu-nav-active');
 })
 
-const navItem = document.querySelectorAll('.nav-item');
+const navItem = document.querySelectorAll('.nav-link');
 
 navItem.forEach(item => {
     item.addEventListener('click', () => {
+        navItem.forEach(item => {
+            item.classList.remove('active');
+        })
         menuMobile.classList.replace('bi-x', 'bi-list');
         item.classList.add('active');
         body.classList.toggle('menu-nav-active');

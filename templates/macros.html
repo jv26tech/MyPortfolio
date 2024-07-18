@@ -5,11 +5,7 @@
 {% macro navbar() %}
 <nav class="navbar nav-menu">
     <ul class="nav flex-column">
-        {{ navItem("Home", "#home", "house", "active") }}
-        {{ navItem("About", "#about", "person") }}
-        {{ navItem("Skills", "#skills", "list-check") }}
-        {{ navItem("Curriculum", "#cv", "collection") }}
-        {{ navItem("Contact", "#contact", "envelope") }}
+        {{ caller() }}
     </ul>
 </nav>
 {% endmacro %}
@@ -32,3 +28,84 @@
     <div class="progress-bar" role="progressbar" style="width: {{ value }}%" aria-valuenow="{{ value }}" aria-valuemin="0" aria-valuemax="100">{{ value }}%</div>
 </div>
 {% endmacro %}
+
+{% macro cvItem(img_src, position, company, date, left=true) %}
+<div class="row align-items-center pb-2 p-3">
+    <div class="col-md-4 shadow {% if not left %}left{% endif %}">
+        <img src="../static/img/portfolio/{{ img_src }}" alt="{{ company }}" class="img-fluid">
+    </div>
+    <div class="col-md-8">  
+        <h3>
+            <strong>{{ position }}</strong> <strong class="fs-5 fst-italic">[{{ date}}]</strong>
+        </h3>
+    <p class="fs-5">
+        {{ caller() }}
+    </p>
+    </div>
+    {% if not left %}
+    <div class="col-md-4 shadow right">
+        <img src="../static/img/portfolio/{{ img_src }}" alt="{{ company }}" class="img-fluid">
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro extra(img_src, position, org, date, left=true) %}
+<div class="row align-items-center pb-2 p-3">
+    <div class="col-md-4 {% if not left %}left{% endif %}">
+        <div class="shadow">
+
+            <img src="../static/img/portfolio/{{ img_src }}" alt="{{ org }}" class="img-fluid">
+        </div>
+    </div>
+    <div class="col-md-8">  
+        <h3>
+            <strong>{{ position }}</strong> <strong class="fs-5 fst-italic">[{{ date }}]</strong>
+        </h3>
+    <p class="fs-5">
+        {{ caller() }}
+    </p>
+    </div>
+    {% if not left %}
+    <div class="col-md-4 right">
+        <div class="shadow">
+
+            <img src="../static/img/portfolio/{{ img_src }}" alt="{{ org }}" class="img-fluid">
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro award(img_src, org, sub, left=true) %}
+<div class="row align-items-center pb-2 p-3">
+    <div class="col-md-4 {% if not left %}left{% endif %}">
+        <div class="shadow">
+
+            <img src="../static/img/portfolio/{{ img_src }}" alt="{{ org }}" class="img-fluid">
+        </div>
+    </div>
+    <div class="col-md-8">  
+        <h3>
+            <strong>{{ org }}</strong> <strong class="fs-5 fst-italic">[{{ sub }}]</strong>
+        </h3>
+    <p class="fs-5">
+        {{ caller() }}
+    </p>
+    </div>
+    {% if not left %}
+    <div class="col-md-4 right">
+        <div class="shadow">
+
+            <img src="../static/img/portfolio/{{ img_src }}" alt="{{ org }}" class="img-fluid">
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro medal(title, text, color) %}
+<li class="list-group-item">
+    <i class="bi bi-award-fill", style="color: {{ color }};"></i> {{ title }}: <span class="fw-lighter">{{ text }}</span>
+</li>
+{% endmacro%}
